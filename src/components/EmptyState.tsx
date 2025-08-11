@@ -1,0 +1,51 @@
+import { View, StyleSheet } from "react-native"
+import { Paragraph, Button } from "react-native-paper"
+import { Ionicons } from "@expo/vector-icons"
+import { theme } from "../theme/theme"
+
+interface EmptyStateProps {
+  icon: keyof typeof Ionicons.glyphMap
+  title: string
+  description: string
+  actionText?: string
+  onAction?: () => void
+}
+
+export default function EmptyState({ icon, title, description, actionText, onAction }: EmptyStateProps) {
+  return (
+    <View style={styles.container}>
+      <Ionicons name={icon} size={64} color={theme.colors.outline} />
+      <Paragraph style={styles.title}>{title}</Paragraph>
+      <Paragraph style={styles.description}>{description}</Paragraph>
+      {actionText && onAction && (
+        <Button mode="contained" onPress={onAction} style={styles.button}>
+          {actionText}
+        </Button>
+      )}
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 32,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: "center",
+  },
+  description: {
+    textAlign: "center",
+    color: theme.colors.outline,
+    marginBottom: 24,
+  },
+  button: {
+    marginTop: 16,
+  },
+})
