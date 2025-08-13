@@ -1,5 +1,5 @@
-import { View, StyleSheet } from "react-native"
-import { ActivityIndicator, Paragraph } from "react-native-paper"
+import { View, StyleSheet, Text } from "react-native"
+import { ActivityIndicator } from "react-native-paper"
 import { theme } from "../theme/theme"
 
 interface LoadingSpinnerProps {
@@ -10,7 +10,7 @@ export default function LoadingSpinner({ message = "Carregando..." }: LoadingSpi
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color={theme.colors.primary} />
-      <Paragraph style={styles.message}>{message}</Paragraph>
+      <Text style={styles.message}>{message}</Text>
     </View>
   )
 }

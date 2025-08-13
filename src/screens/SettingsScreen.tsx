@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { View, ScrollView, StyleSheet, Alert } from "react-native"
-import { Card, Title, TextInput, Button, List, Switch, Paragraph, Divider, Chip, IconButton } from "react-native-paper"
+import { View, ScrollView, StyleSheet, Alert, Text } from "react-native"
+import { Card, TextInput, Button, List, Switch, Divider, Chip, IconButton } from "react-native-paper"
 import { Ionicons } from "@expo/vector-icons"
 import * as Notifications from "expo-notifications"
 import { useData } from "../context/DataContext"
@@ -123,9 +123,9 @@ export default function SettingsScreen() {
       {/* Configurações do Veículo */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>
+          <Text style={styles.cardTitle}>
             <Ionicons name="car" size={24} color={theme.colors.primary} /> Configurações do Veículo
-          </Title>
+          </Text>
 
           <TextInput
             label="Preço do combustível (R$/L)"
@@ -156,11 +156,11 @@ export default function SettingsScreen() {
       {/* Gerenciar Aplicativos */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>
+          <Text style={styles.cardTitle}>
             <Ionicons name="apps" size={24} color={theme.colors.primary} /> Aplicativos de Transporte
-          </Title>
+          </Text>
 
-          <Paragraph style={styles.subtitle}>Aplicativos configurados:</Paragraph>
+          <Text style={styles.subtitle}>Aplicativos configurados:</Text>
 
           <View style={styles.appsContainer}>
             {state.settings.apps.map((app) => (
@@ -200,9 +200,9 @@ export default function SettingsScreen() {
       {/* Notificações */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>
+          <Text style={styles.cardTitle}>
             <Ionicons name="notifications" size={24} color={theme.colors.primary} /> Notificações
-          </Title>
+          </Text>
 
           <List.Item
             title="Lembretes diários"
@@ -216,9 +216,9 @@ export default function SettingsScreen() {
       {/* Informações do App */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>
+          <Text style={styles.cardTitle}>
             <Ionicons name="information-circle" size={24} color={theme.colors.primary} /> Sobre o App
-          </Title>
+          </Text>
 
           <List.Item title="Versão" description="1.0.0" left={(props) => <List.Icon {...props} icon="information" />} />
 
@@ -245,9 +245,9 @@ export default function SettingsScreen() {
       {/* Dicas */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>
+          <Text style={styles.cardTitle}>
             <Ionicons name="bulb" size={24} color={theme.colors.warning} /> Dicas de Uso
-          </Title>
+          </Text>
 
           <List.Item
             title="Registre diariamente"

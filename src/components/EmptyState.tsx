@@ -1,5 +1,5 @@
-import { View, StyleSheet } from "react-native"
-import { Paragraph, Button } from "react-native-paper"
+import { View, StyleSheet, Text } from "react-native"
+import { Button } from "react-native-paper"
 import { Ionicons } from "@expo/vector-icons"
 import { theme } from "../theme/theme"
 
@@ -15,8 +15,8 @@ export default function EmptyState({ icon, title, description, actionText, onAct
   return (
     <View style={styles.container}>
       <Ionicons name={icon} size={64} color={theme.colors.outline} />
-      <Paragraph style={styles.title}>{title}</Paragraph>
-      <Paragraph style={styles.description}>{description}</Paragraph>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.description}>{description}</Text>
       {actionText && onAction && (
         <Button mode="contained" onPress={onAction} style={styles.button}>
           {actionText}

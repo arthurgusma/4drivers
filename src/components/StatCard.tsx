@@ -1,5 +1,5 @@
-import { View, StyleSheet } from "react-native"
-import { Card, Title, Paragraph } from "react-native-paper"
+import { View, StyleSheet, Text } from "react-native"
+import { Card } from "react-native-paper"
 import { Ionicons } from "@expo/vector-icons"
 import { theme } from "../theme/theme"
 
@@ -17,10 +17,10 @@ export default function StatCard({ title, value, icon, color = theme.colors.prim
       <Card.Content style={styles.content}>
         <View style={styles.header}>
           <Ionicons name={icon} size={24} color={color} />
-          <Title style={[styles.title, { color }]}>{title}</Title>
+          <Text style={[styles.title, { color }]}>{title}</Text>
         </View>
-        <Paragraph style={[styles.value, { color }]}>{value}</Paragraph>
-        {subtitle && <Paragraph style={styles.subtitle}>{subtitle}</Paragraph>}
+        <Text style={[styles.value, { color }]}>{value}</Text>
+        {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
       </Card.Content>
     </Card>
   )

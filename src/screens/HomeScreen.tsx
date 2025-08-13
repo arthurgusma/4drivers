@@ -268,6 +268,7 @@ const styles = StyleSheet.create({
   },
   addButton: {
     marginTop: 8,
+    backgroundColor: theme.colors.background,
   },
   actionsContainer: {
     flexDirection: "row",

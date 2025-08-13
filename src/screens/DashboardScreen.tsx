@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { View, ScrollView, StyleSheet, Dimensions } from "react-native"
-import { Card, Title, Paragraph, SegmentedButtons, Chip } from "react-native-paper"
+import { View, ScrollView, StyleSheet, Dimensions, Text } from "react-native"
+import { Card, SegmentedButtons, Chip } from "react-native-paper"
 import { VictoryChart, VictoryArea, VictoryBar, VictoryAxis, VictoryTheme } from "victory-native"
 import { Ionicons } from "@expo/vector-icons"
 import { useData } from "../context/DataContext"
@@ -102,44 +102,44 @@ export default function DashboardScreen() {
       {/* Resumo Estatístico */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>
+          <Text style={styles.cardTitle}>
             <Ionicons name="stats-chart" size={24} color={theme.colors.primary} /> Resumo do Período
-          </Title>
+          </Text>
 
           <View style={styles.statsGrid}>
             <View style={styles.statBox}>
-              <Paragraph style={styles.statLabel}>Total Ganho</Paragraph>
-              <Paragraph style={[styles.statValue, { color: theme.colors.success }]}>
+              <Text style={styles.statLabel}>Total Ganho</Text>
+              <Text style={[styles.statValue, { color: theme.colors.success }]}>
                 {formatCurrency(currentStats.totalEarnings)}
-              </Paragraph>
+              </Text>
             </View>
 
             <View style={styles.statBox}>
-              <Paragraph style={styles.statLabel}>Combustível</Paragraph>
-              <Paragraph style={[styles.statValue, { color: theme.colors.error }]}>
+              <Text style={styles.statLabel}>Combustível</Text>
+              <Text style={[styles.statValue, { color: theme.colors.error }]}>
                 {formatCurrency(currentStats.totalFuelCost)}
-              </Paragraph>
+              </Text>
             </View>
 
             <View style={styles.statBox}>
-              <Paragraph style={styles.statLabel}>Lucro Líquido</Paragraph>
-              <Paragraph
+              <Text style={styles.statLabel}>Lucro Líquido</Text>
+              <Text
                 style={[
                   styles.statValue,
                   { color: currentStats.totalNetProfit >= 0 ? theme.colors.success : theme.colors.error },
                 ]}
               >
                 {formatCurrency(currentStats.totalNetProfit)}
-              </Paragraph>
+              </Text>
             </View>
 
             <View style={styles.statBox}>
-              <Paragraph style={styles.statLabel}>Média/Dia</Paragraph>
-              <Paragraph style={styles.statValue}>
+              <Text style={styles.statLabel}>Média/Dia</Text>
+              <Text style={styles.statValue}>
                 {formatCurrency(
                   currentStats.recordCount > 0 ? currentStats.totalNetProfit / currentStats.recordCount : 0,
                 )}
-              </Paragraph>
+              </Text>
             </View>
           </View>
         </Card.Content>
@@ -149,7 +149,7 @@ export default function DashboardScreen() {
       {chartData.length > 0 && (
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.cardTitle}>Evolução dos Ganhos</Title>
+            <Text style={styles.cardTitle}>Evolução dos Ganhos</Text>
             <VictoryChart
               theme={VictoryTheme.material}
               height={250}
@@ -175,7 +175,7 @@ export default function DashboardScreen() {
       {chartData.length > 0 && (
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.cardTitle}>Lucro vs Gastos</Title>
+            <Text style={styles.cardTitle}>Lucro vs Gastos</Text>
             <VictoryChart
               theme={VictoryTheme.material}
               height={250}
@@ -202,14 +202,14 @@ export default function DashboardScreen() {
       {/* Distribuição por App */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>Ganhos por Aplicativo</Title>
+          <Text style={styles.cardTitle}>Ganhos por Aplicativo</Text>
           <View style={styles.appsContainer}>
             {appEarningsData.map(({ app, total, percentage }) => (
               <View key={app} style={styles.appRow}>
                 <Chip style={styles.appChip}>{app}</Chip>
                 <View style={styles.appStats}>
-                  <Paragraph style={styles.appTotal}>{formatCurrency(total)}</Paragraph>
-                  <Paragraph style={styles.appPercentage}>{percentage.toFixed(1)}%</Paragraph>
+                  <Text style={styles.appTotal}>{formatCurrency(total)}</Text>
+                  <Text style={styles.appPercentage}>{percentage.toFixed(1)}%</Text>
                 </View>
               </View>
             ))}
@@ -220,29 +220,29 @@ export default function DashboardScreen() {
       {/* Métricas Adicionais */}
       <Card style={styles.card}>
         <Card.Content>
-          <Title style={styles.cardTitle}>Métricas de Performance</Title>
+          <Text style={styles.cardTitle}>Métricas de Performance</Text>
 
           <View style={styles.metricsContainer}>
             <View style={styles.metricItem}>
               <Ionicons name="speedometer" size={24} color={theme.colors.primary} />
-              <Paragraph style={styles.metricLabel}>KM Total</Paragraph>
-              <Paragraph style={styles.metricValue}>{currentStats.totalDistance.toFixed(1)} km</Paragraph>
+              <Text style={styles.metricLabel}>KM Total</Text>
+              <Text style={styles.metricValue}>{currentStats.totalDistance.toFixed(1)} km</Text>
             </View>
 
             <View style={styles.metricItem}>
               <Ionicons name="cash" size={24} color={theme.colors.success} />
-              <Paragraph style={styles.metricLabel}>R$/KM</Paragraph>
-              <Paragraph style={styles.metricValue}>
+              <Text style={styles.metricLabel}>R$/KM</Text>
+              <Text style={styles.metricValue}>
                 {currentStats.totalDistance > 0
                   ? formatCurrency(currentStats.totalEarnings / currentStats.totalDistance)
                   : formatCurrency(0)}
-              </Paragraph>
+              </Text>
             </View>
 
             <View style={styles.metricItem}>
               <Ionicons name="calendar" size={24} color={theme.colors.secondary} />
-              <Paragraph style={styles.metricLabel}>Dias Ativos</Paragraph>
-              <Paragraph style={styles.metricValue}>{currentStats.recordCount} dias</Paragraph>
+              <Text style={styles.metricLabel}>Dias Ativos</Text>
+              <Text style={styles.metricValue}>{currentStats.recordCount} dias</Text>
             </View>
           </View>
         </Card.Content>
