@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import { View, ScrollView, StyleSheet, Alert, Text } from "react-native"
-import { Card, TextInput, Button, List, Switch, Divider, Chip, IconButton } from "react-native-paper"
+import { Card, TextInput, List, Switch, Divider, Chip, IconButton } from "react-native-paper"
 import { Ionicons } from "@expo/vector-icons"
 import * as Notifications from "expo-notifications"
 import { useData } from "../context/DataContext"
 import { theme } from "../theme/theme"
+import Button from "../components/ui/Button"
 
 export default function SettingsScreen() {
   const { state, updateSettings } = useData()
@@ -147,7 +148,7 @@ export default function SettingsScreen() {
             left={<TextInput.Icon icon="speedometer" />}
           />
 
-          <Button mode="contained" onPress={handleSaveSettings} style={styles.saveButton} icon="content-save">
+          <Button mode="contained" onPress={handleSaveSettings} icon="content-save">
             Salvar Configurações
           </Button>
         </Card.Content>
@@ -190,7 +191,7 @@ export default function SettingsScreen() {
               />
             </View>
           ) : (
-            <Button mode="outlined" onPress={() => setShowAddApp(true)} style={styles.addButton} icon="plus">
+            <Button mode="outlined" onPress={() => setShowAddApp(true)} icon="plus">
               Adicionar Aplicativo
             </Button>
           )}
@@ -233,7 +234,7 @@ export default function SettingsScreen() {
           <Button
             mode="outlined"
             onPress={clearAllData}
-            style={[styles.dangerButton, { borderColor: theme.colors.error }]}
+            style={{ borderColor: theme.colors.error }}
             textColor={theme.colors.error}
             icon="delete"
           >
@@ -297,9 +298,6 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 16,
   },
-  saveButton: {
-    marginTop: 8,
-  },
   appsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -322,13 +320,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-  addButton: {
-    marginTop: 8,
-  },
   divider: {
     marginVertical: 16,
-  },
-  dangerButton: {
-    marginTop: 8,
   },
 })

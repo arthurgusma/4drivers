@@ -1,7 +1,7 @@
 import { View, StyleSheet, Text } from "react-native"
-import { Button } from "react-native-paper"
 import { Ionicons } from "@expo/vector-icons"
 import { theme } from "../theme/theme"
+import Button from "./ui/Button"
 
 interface EmptyStateProps {
   icon: keyof typeof Ionicons.glyphMap
@@ -18,7 +18,7 @@ export default function EmptyState({ icon, title, description, actionText, onAct
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
       {actionText && onAction && (
-        <Button mode="contained" onPress={onAction} style={styles.button}>
+        <Button mode="contained" onPress={onAction}>
           {actionText}
         </Button>
       )}
@@ -44,8 +44,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: theme.colors.outline,
     marginBottom: 24,
-  },
-  button: {
-    marginTop: 16,
   },
 })

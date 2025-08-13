@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import { View, ScrollView, StyleSheet, Alert, Text } from "react-native"
-import { Card, TextInput, Button, Divider, IconButton } from "react-native-paper"
+import { Card, TextInput, Divider, IconButton } from "react-native-paper"
 import { Ionicons } from "@expo/vector-icons"
 import { useData } from "../context/DataContext"
 import { theme } from "../theme/theme"
+import Button from "../components/ui/Button"
 
 export default function AddRecordScreen({ navigation }: any) {
   const { addRecord, state } = useData()
@@ -136,7 +137,7 @@ export default function AddRecordScreen({ navigation }: any) {
               />
             </View>
           ) : (
-            <Button mode="outlined" onPress={() => setShowAddApp(true)} style={styles.addAppButton} icon="plus">
+            <Button mode="outlined" onPress={() => setShowAddApp(true)} icon="plus">
               Adicionar Novo App
             </Button>
           )}
@@ -176,7 +177,7 @@ export default function AddRecordScreen({ navigation }: any) {
             </View>
           </View>
 
-          <Button mode="contained" onPress={handleAddRecord} style={styles.saveButton} icon="content-save">
+          <Button mode="contained" onPress={handleAddRecord} icon="content-save">
             Salvar Registro
           </Button>
         </Card.Content>
@@ -224,9 +225,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-  addAppButton: {
-    marginBottom: 16,
-  },
   divider: {
     marginVertical: 20,
   },
@@ -254,8 +252,5 @@ const styles = StyleSheet.create({
   netProfitValue: {
     fontSize: 18,
     fontWeight: "bold",
-  },
-  saveButton: {
-    paddingVertical: 8,
   },
 })
