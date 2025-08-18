@@ -49,7 +49,7 @@ function TabNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />
         },
-        tabBarActiveTintColor: theme.colors.background,
+        tabBarActiveTintcolor: theme.colors.background,
         tabBarInactiveTintColor: theme.colors.tertiary,
         headerStyle: {
           backgroundColor: theme.colors.background,

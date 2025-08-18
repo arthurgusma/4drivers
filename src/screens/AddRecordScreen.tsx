@@ -149,14 +149,14 @@ export default function AddRecordScreen({ navigation }: any) {
 
           <View style={styles.previewContainer}>
             <View style={styles.previewRow}>
-              <Text>Total Ganhos:</Text>
+              <Text style={styles.previewText}>Total Ganhos:</Text>
               <Text style={[styles.previewValue, { color: theme.colors.success }]}>
                 {formatCurrency(preview.totalEarnings)}
               </Text>
             </View>
 
             <View style={styles.previewRow}>
-              <Text>Gasto Combustível:</Text>
+              <Text style={styles.previewText}>Gasto Combustível:</Text>
               <Text style={[styles.previewValue, { color: theme.colors.error }]}>
                 {formatCurrency(preview.fuelCost)}
               </Text>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.primary,
   },
   cardTitleContainer: {
     flexDirection: "row",
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 16,
     marginBottom: 12,
-    color: theme.colors.primary,
+    color: theme.colors.textBlack,
   },
   addAppContainer: {
     flexDirection: "row",
@@ -239,6 +239,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 8,
   },
+  previewText: {
+    color: theme.colors.textWhite,
+  },
   previewValue: {
     fontWeight: "bold",
   },
@@ -248,6 +251,7 @@ const styles = StyleSheet.create({
   netProfitLabel: {
     fontSize: 16,
     fontWeight: "bold",
+    color: theme.colors.primary,
   },
   netProfitValue: {
     fontSize: 18,

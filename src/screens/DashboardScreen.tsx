@@ -102,9 +102,10 @@ export default function DashboardScreen() {
       {/* Resumo Estatístico */}
       <Card style={styles.card}>
         <Card.Content>
-          <Text style={styles.cardTitle}>
-            <Ionicons name="stats-chart" size={24} color={theme.colors.primary} /> Resumo do Período
-          </Text>
+          <View style={styles.cardTitleContainer}>
+            <Ionicons name="stats-chart" size={24} color={theme.colors.background} />
+            <Text style={styles.cardTitle}>Resumo do Período</Text>
+          </View>
 
           <View style={styles.statsGrid}>
             <View style={styles.statBox}>
@@ -264,13 +265,18 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 16,
-    color: theme.colors.primary,
+    color: theme.colors.textBlack,
   },
   statsGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
+  },
+  cardTitleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+    gap: 8,
   },
   statBox: {
     width: "48%",
@@ -281,13 +287,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   statLabel: {
-    fontSize: 12,
-    color: theme.colors.outline,
+    fontSize: 14,
+    color: theme.colors.textWhite,
     marginBottom: 4,
   },
   statValue: {
     fontSize: 16,
     fontWeight: "bold",
+    color: theme.colors.success,
   },
   appsContainer: {
     gap: 12,

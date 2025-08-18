@@ -2,11 +2,12 @@
 
 import React from "react"
 import { View, ScrollView, StyleSheet, RefreshControl } from "react-native"
-import { Card, Button, Chip, Divider } from "react-native-paper"
+import { Card, Chip, Divider } from "react-native-paper"
 import { Text } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { useData } from "../context/DataContext"
 import { theme } from "../theme/theme"
+import Button from "../components/ui/Button"
 
 export default function HomeScreen({ navigation }: any) {
   const { getTodayRecord, getWeeklyStats, state } = useData()
@@ -96,7 +97,7 @@ export default function HomeScreen({ navigation }: any) {
             <View style={styles.noDataContainer}>
               <Ionicons name="calendar-outline" size={48} color={theme.colors.outline} />
               <Text style={styles.noDataText}>Nenhum registro para hoje</Text>
-              <Button mode="contained" onPress={() => navigation.navigate("Adicionar")} style={styles.addButton}>
+              <Button mode="contained" onPress={() => navigation.navigate("Adicionar")}>
                 Adicionar Primeiro Registro
               </Button>
             </View>
@@ -178,7 +179,6 @@ export default function HomeScreen({ navigation }: any) {
             <Button
               mode="contained"
               onPress={() => navigation.navigate("Adicionar")}
-              style={styles.actionButton}
               icon="plus"
             >
               Novo Registro
@@ -186,7 +186,6 @@ export default function HomeScreen({ navigation }: any) {
             <Button
               mode="outlined"
               onPress={() => navigation.navigate("Dashboard")}
-              style={styles.actionButton}
               icon="chart-line"
             >
               Ver Relatórios
@@ -266,16 +265,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: theme.colors.outline,
   },
-  addButton: {
-    marginTop: 8,
-    backgroundColor: theme.colors.background,
-  },
   actionsContainer: {
     flexDirection: "row",
     gap: 12,
-  },
-  actionButton: {
-    flex: 1,
-    backgroundColor: theme.colors.background,
   },
 })

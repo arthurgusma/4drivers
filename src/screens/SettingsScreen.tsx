@@ -124,9 +124,10 @@ export default function SettingsScreen() {
       {/* Configurações do Veículo */}
       <Card style={styles.card}>
         <Card.Content>
-          <Text style={styles.cardTitle}>
-            <Ionicons name="car" size={24} color={theme.colors.primary} /> Configurações do Veículo
-          </Text>
+          <View style={styles.cardTitleContainer}>
+            <Ionicons name="car" size={24} color={theme.colors.background} />
+            <Text style={styles.cardTitle}>Configurações do Veículo</Text>
+          </View>
 
           <TextInput
             label="Preço do combustível (R$/L)"
@@ -157,9 +158,10 @@ export default function SettingsScreen() {
       {/* Gerenciar Aplicativos */}
       <Card style={styles.card}>
         <Card.Content>
-          <Text style={styles.cardTitle}>
-            <Ionicons name="apps" size={24} color={theme.colors.primary} /> Aplicativos de Transporte
-          </Text>
+          <View style={styles.cardTitleContainer}>
+            <Ionicons name="apps" size={24} color={theme.colors.background} />
+            <Text style={styles.cardTitle}>Aplicativos de Transporte</Text>
+          </View>
 
           <Text style={styles.subtitle}>Aplicativos configurados:</Text>
 
@@ -181,7 +183,7 @@ export default function SettingsScreen() {
                 mode="outlined"
                 style={styles.newAppInput}
               />
-              <IconButton icon="check" mode="contained" onPress={handleAddApp} />
+              <IconButton icon="check" mode="contained" onPress={handleAddApp} style={{ backgroundColor: theme.colors.success }} />
               <IconButton
                 icon="close"
                 onPress={() => {
@@ -201,9 +203,10 @@ export default function SettingsScreen() {
       {/* Notificações */}
       <Card style={styles.card}>
         <Card.Content>
-          <Text style={styles.cardTitle}>
-            <Ionicons name="notifications" size={24} color={theme.colors.primary} /> Notificações
-          </Text>
+          <View style={styles.cardTitleContainer}>
+            <Ionicons name="notifications" size={24} color={theme.colors.background} />
+            <Text style={styles.cardTitle}>Notificações</Text>
+          </View>
 
           <List.Item
             title="Lembretes diários"
@@ -217,9 +220,10 @@ export default function SettingsScreen() {
       {/* Informações do App */}
       <Card style={styles.card}>
         <Card.Content>
-          <Text style={styles.cardTitle}>
-            <Ionicons name="information-circle" size={24} color={theme.colors.primary} /> Sobre o App
-          </Text>
+          <View style={styles.cardTitleContainer}>
+            <Ionicons name="information-circle" size={24} color={theme.colors.background} />
+            <Text style={styles.cardTitle}>Sobre o App</Text>
+          </View>
 
           <List.Item title="Versão" description="1.0.0" left={(props) => <List.Icon {...props} icon="information" />} />
 
@@ -232,11 +236,10 @@ export default function SettingsScreen() {
           <Divider style={styles.divider} />
 
           <Button
-            mode="outlined"
             onPress={clearAllData}
-            style={{ borderColor: theme.colors.error }}
-            textColor={theme.colors.error}
+            textColor={theme.colors.textWhite}
             icon="delete"
+            style={{ backgroundColor: theme.colors.danger }}
           >
             Apagar Todos os Dados
           </Button>
@@ -246,9 +249,10 @@ export default function SettingsScreen() {
       {/* Dicas */}
       <Card style={styles.card}>
         <Card.Content>
-          <Text style={styles.cardTitle}>
-            <Ionicons name="bulb" size={24} color={theme.colors.warning} /> Dicas de Uso
-          </Text>
+          <View style={styles.cardTitleContainer}>
+            <Ionicons name="bulb" size={24} color={theme.colors.warning} />
+            <Text style={styles.cardTitle}>Dicas de Uso</Text>
+          </View>
 
           <List.Item
             title="Registre diariamente"
@@ -286,8 +290,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 16,
-    color: theme.colors.primary,
+    color: theme.colors.textBlack,
   },
   subtitle: {
     fontSize: 14,
@@ -297,6 +300,13 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
+    backgroundColor: theme.colors.primary,
+  },
+  cardTitleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+    gap: 8,
   },
   appsContainer: {
     flexDirection: "row",
@@ -319,6 +329,7 @@ const styles = StyleSheet.create({
   newAppInput: {
     flex: 1,
     marginRight: 8,
+    backgroundColor: theme.colors.primary,
   },
   divider: {
     marginVertical: 16,
