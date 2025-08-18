@@ -146,6 +146,37 @@ export default function DashboardScreen() {
         </Card.Content>
       </Card>
 
+      {/* Métricas Adicionais */}
+      <Card style={styles.card}>
+        <Card.Content>
+          <Text style={styles.cardTitle}>Métricas de Performance</Text>
+
+          <View style={styles.metricsContainer}>
+            <View style={styles.metricItem}>
+              <Ionicons name="speedometer" size={24} color={theme.colors.tertiary} />
+              <Text style={styles.metricLabel}>KM Total</Text>
+              <Text style={styles.metricValue}>{currentStats.totalDistance.toFixed(1)} km</Text>
+            </View>
+
+            <View style={styles.metricItem}>
+              <Ionicons name="cash" size={24} color={theme.colors.success} />
+              <Text style={styles.metricLabel}>R$/KM</Text>
+              <Text style={styles.metricValue}>
+                {currentStats.totalDistance > 0
+                  ? formatCurrency(currentStats.totalEarnings / currentStats.totalDistance)
+                  : formatCurrency(0)}
+              </Text>
+            </View>
+
+            <View style={styles.metricItem}>
+              <Ionicons name="calendar" size={24} color={theme.colors.warning} />
+              <Text style={styles.metricLabel}>Dias Ativos</Text>
+              <Text style={styles.metricValue}>{currentStats.recordCount} dias</Text>
+            </View>
+          </View>
+        </Card.Content>
+      </Card>
+
       {/* Gráfico de Evolução */}
       {chartData.length > 0 && (
         <Card style={styles.card}>
@@ -214,37 +245,6 @@ export default function DashboardScreen() {
                 </View>
               </View>
             ))}
-          </View>
-        </Card.Content>
-      </Card>
-
-      {/* Métricas Adicionais */}
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text style={styles.cardTitle}>Métricas de Performance</Text>
-
-          <View style={styles.metricsContainer}>
-            <View style={styles.metricItem}>
-              <Ionicons name="speedometer" size={24} color={theme.colors.primary} />
-              <Text style={styles.metricLabel}>KM Total</Text>
-              <Text style={styles.metricValue}>{currentStats.totalDistance.toFixed(1)} km</Text>
-            </View>
-
-            <View style={styles.metricItem}>
-              <Ionicons name="cash" size={24} color={theme.colors.success} />
-              <Text style={styles.metricLabel}>R$/KM</Text>
-              <Text style={styles.metricValue}>
-                {currentStats.totalDistance > 0
-                  ? formatCurrency(currentStats.totalEarnings / currentStats.totalDistance)
-                  : formatCurrency(0)}
-              </Text>
-            </View>
-
-            <View style={styles.metricItem}>
-              <Ionicons name="calendar" size={24} color={theme.colors.secondary} />
-              <Text style={styles.metricLabel}>Dias Ativos</Text>
-              <Text style={styles.metricValue}>{currentStats.recordCount} dias</Text>
-            </View>
           </View>
         </Card.Content>
       </Card>
@@ -323,6 +323,7 @@ const styles = StyleSheet.create({
   metricsContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
+    marginTop: 16,
   },
   metricItem: {
     alignItems: "center",
