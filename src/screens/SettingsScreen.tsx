@@ -275,7 +275,7 @@ export default function SettingsScreen() {
 
           <List.Item
             title="Use os relatórios"
-            description="Analise seus dados no Dashboard para otimizar ganhos"
+            description="Analise seus dados na página de Resumo para otimizar ganhos"
             left={(props) => <List.Icon {...props} icon="chart-line" />}
           />
         </Card.Content>

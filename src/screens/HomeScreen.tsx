@@ -98,7 +98,7 @@ export default function HomeScreen({ navigation }: any) {
               <Ionicons name="calendar-outline" size={48} color={theme.colors.outline} />
               <Text style={styles.noDataText}>Nenhum registro para hoje</Text>
               <Button mode="contained" onPress={() => navigation.navigate("Adicionar")}>
-                Adicionar Primeiro Registro
+                Adicionar Registro
               </Button>
             </View>
           )}

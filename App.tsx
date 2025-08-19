@@ -62,7 +62,7 @@ function TabNavigator() {
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ title: "Início" }} />
       <Tab.Screen name="Adicionar" component={AddRecordScreen} options={{ title: "Novo Registro" }} />
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      <Tab.Screen name="Resumo" component={DashboardScreen} />
       <Tab.Screen name="Configurações" component={SettingsScreen} />
     </Tab.Navigator>
   )

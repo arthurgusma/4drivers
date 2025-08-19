@@ -86,7 +86,7 @@ export default function AddRecordScreen({ navigation }: any) {
         <Card.Content>
           <View style={styles.cardTitleContainer}>
             <Ionicons name="add-circle" size={24} />
-            <Text style={styles.cardTitle}>Novo Registro Diário</Text>
+            <Text style={styles.cardTitle}>Novo Registro</Text>
           </View>
 
           {/* Distância */}

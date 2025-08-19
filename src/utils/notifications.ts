@@ -33,7 +33,7 @@ export const scheduleWeeklyReport = async () => {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: "📈 Relatório semanal disponível",
-      body: "Confira seu desempenho da semana no Dashboard!",
+      body: "Confira seu desempenho da semana na página de Resumo!",
       data: { type: "weekly_report" },
     },
     trigger: {
