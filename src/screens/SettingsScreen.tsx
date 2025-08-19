@@ -10,7 +10,7 @@ import { theme } from "../theme/theme"
 import Button from "../components/ui/Button"
 
 export default function SettingsScreen() {
-  const { state, updateSettings } = useData()
+  const { state, updateSettings, clearAllData } = useData()
   const [fuelPrice, setFuelPrice] = useState(state.settings.fuelPricePerLiter.toString())
   const [autonomy, setAutonomy] = useState(state.settings.vehicleAutonomy.toString())
   const [newApp, setNewApp] = useState("")
@@ -105,15 +105,19 @@ export default function SettingsScreen() {
     }
   }
 
-  const clearAllData = () => {
+  const handleClearAllData = () => {
     Alert.alert("ATENÇÃO", "Esta ação irá apagar TODOS os seus dados. Esta ação não pode ser desfeita!", [
       { text: "Cancelar", style: "cancel" },
       {
         text: "APAGAR TUDO",
         style: "destructive",
-        onPress: () => {
-          // Aqui você implementaria a lógica para limpar todos os dados
-          Alert.alert("Info", "Funcionalidade em desenvolvimento.")
+        onPress: async () => {
+          try {
+            await clearAllData()
+            Alert.alert("Sucesso", "Todos os dados foram apagados com sucesso!")
+          } catch (error) {
+            Alert.alert("Erro", "Erro ao apagar os dados. Tente novamente.")
+          }
         },
       },
     ])
@@ -239,7 +243,7 @@ export default function SettingsScreen() {
           <Divider style={styles.divider} />
 
           <Button
-            onPress={clearAllData}
+            onPress={handleClearAllData}
             textColor={theme.colors.textWhite}
             icon="delete"
             style={{ backgroundColor: theme.colors.danger }}

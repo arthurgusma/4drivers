@@ -29,6 +29,7 @@ type DataAction =
   | { type: "ADD_RECORD"; payload: DailyRecord }
   | { type: "UPDATE_SETTINGS"; payload: Settings }
   | { type: "DELETE_RECORD"; payload: string }
+  | { type: "CLEAR_ALL_DATA" }
 
 const initialState: DataState = {
   records: [],
@@ -47,6 +48,7 @@ const DataContext = createContext<{
   getTodayRecord: () => DailyRecord | undefined
   getWeeklyStats: () => any
   getMonthlyStats: () => any
+  clearAllData: () => Promise<void>
 }>({
   state: initialState,
   dispatch: () => {},
@@ -55,6 +57,7 @@ const DataContext = createContext<{
   getTodayRecord: () => undefined,
   getWeeklyStats: () => ({}),
   getMonthlyStats: () => ({}),
+  clearAllData: async () => {},
 })
 
 function dataReducer(state: DataState, action: DataAction): DataState {
@@ -69,6 +72,12 @@ function dataReducer(state: DataState, action: DataAction): DataState {
       return {
         ...state,
         records: state.records.filter((record) => record.id !== action.payload),
+      }
+    case "CLEAR_ALL_DATA":
+      return {
+        ...state,
+        records: [],
+        settings: initialState.settings,
       }
     default:
       return state
@@ -172,6 +181,17 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  const clearAllData = async () => {
+    try {
+      await AsyncStorage.multiRemove(["records", "settings"])
+      
+      dispatch({ type: "CLEAR_ALL_DATA" })
+    } catch (error) {
+      console.error("Error clearing data:", error)
+      throw error
+    }
+  }
+
   return (
     <DataContext.Provider
       value={{
@@ -182,6 +202,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         getTodayRecord,
         getWeeklyStats,
         getMonthlyStats,
+        clearAllData,
       }}
     >
       {children}
