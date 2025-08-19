@@ -136,6 +136,7 @@ export default function SettingsScreen() {
             keyboardType="numeric"
             mode="outlined"
             style={styles.input}
+            theme={{ colors: { primary: theme.colors.selected } }}
             left={<TextInput.Icon icon="gas-station" />}
           />
 
@@ -146,6 +147,7 @@ export default function SettingsScreen() {
             keyboardType="numeric"
             mode="outlined"
             style={styles.input}
+            theme={{ colors: { primary: theme.colors.selected } }}
             left={<TextInput.Icon icon="speedometer" />}
           />
 
@@ -182,6 +184,7 @@ export default function SettingsScreen() {
                 onChangeText={setNewApp}
                 mode="outlined"
                 style={styles.newAppInput}
+                theme={{ colors: { primary: theme.colors.selected } }}
               />
               <IconButton icon="check" mode="contained" onPress={handleAddApp} style={{ backgroundColor: theme.colors.success }} />
               <IconButton

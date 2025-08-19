@@ -97,7 +97,7 @@ export default function AddRecordScreen({ navigation }: any) {
             keyboardType="numeric"
             mode="outlined"
             style={styles.input}
-            theme={{ colors: { primary: theme.colors.primary } }}
+            theme={{ colors: { primary: theme.colors.selected } }}
             left={<TextInput.Icon icon="map-marker-distance" />}
           />
 
@@ -113,6 +113,7 @@ export default function AddRecordScreen({ navigation }: any) {
               keyboardType="numeric"
               mode="outlined"
               style={styles.input}
+              theme={{ colors: { primary: theme.colors.selected } }}
               left={<TextInput.Icon icon="cash" />}
             />
           ))}
@@ -126,6 +127,7 @@ export default function AddRecordScreen({ navigation }: any) {
                 onChangeText={setNewApp}
                 mode="outlined"
                 style={styles.newAppInput}
+                theme={{ colors: { primary: theme.colors.selected } }}
               />
               <IconButton icon="check" mode="contained" onPress={handleAddApp} />
               <IconButton
