@@ -96,7 +96,7 @@ export default function SettingsScreen() {
         await scheduleNotification()
         Alert.alert("Sucesso", "Notificações ativadas! Você receberá lembretes diários às 22h.")
       } else {
-        Alert.alert("Erro", "Permissão para notificações negada.")
+        Alert.alert("Erro", "Permissão para notificações negada. Vá nas configurações do seu celular e ative as notificações para o app.")
         setNotificationsEnabled(false)
       }
     } else {
