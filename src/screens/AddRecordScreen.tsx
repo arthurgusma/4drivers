@@ -129,7 +129,7 @@ export default function AddRecordScreen({ navigation }: any) {
                 style={styles.newAppInput}
                 theme={{ colors: { primary: theme.colors.selected } }}
               />
-              <IconButton icon="check" mode="contained" onPress={handleAddApp} />
+              <IconButton icon="check" mode="contained" onPress={handleAddApp} style={styles.confirmButton} />
               <IconButton
                 icon="close"
                 onPress={() => {
@@ -139,9 +139,14 @@ export default function AddRecordScreen({ navigation }: any) {
               />
             </View>
           ) : (
-            <Button mode="outlined" onPress={() => setShowAddApp(true)} icon="plus">
-              Adicionar Novo App
-            </Button>
+            <View style={styles.buttonContainer}>
+              <Button mode="contained" onPress={handleAddRecord} icon="content-save">
+                Salvar Registro
+              </Button>
+              <Button mode="outlined" onPress={() => setShowAddApp(true)} icon="plus">
+                Adicionar Novo App
+              </Button>
+            </View>
           )}
 
           <Divider style={styles.divider} />
@@ -179,9 +184,6 @@ export default function AddRecordScreen({ navigation }: any) {
             </View>
           </View>
 
-          <Button mode="contained" onPress={handleAddRecord} icon="content-save">
-            Salvar Registro
-          </Button>
         </Card.Content>
       </Card>
     </ScrollView>
@@ -205,6 +207,14 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     backgroundColor: theme.colors.textWhite,
   },
+  confirmButton: {
+    backgroundColor: theme.colors.success,
+  },
+  buttonContainer: {
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: 16,
+  },
   cardTitleContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -214,7 +224,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    marginTop: 16,
+    marginTop: -8,
     marginBottom: 12,
     color: theme.colors.textBlack,
   },
@@ -226,6 +236,7 @@ const styles = StyleSheet.create({
   newAppInput: {
     flex: 1,
     marginRight: 8,
+    backgroundColor: theme.colors.textWhite,
   },
   divider: {
     marginVertical: 20,

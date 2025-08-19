@@ -15,6 +15,7 @@ export const theme = {
     error: "#FF6B6B",
     warning: "#FFB74D",
     success: "#4E9F3D",
-    lightSuccess: "#03C988"
+    lightSuccess: "#03C988",
+    selected: "#0D1164",
   },
 }
