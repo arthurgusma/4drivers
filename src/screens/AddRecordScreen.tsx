@@ -145,7 +145,7 @@ export default function AddRecordScreen({ navigation }: any) {
           <Divider style={styles.divider} />
 
           {/* Preview dos Cálculos */}
-          <Text style={styles.sectionTitle}>Preview dos Cálculos</Text>
+          <Text style={styles.sectionTitle}>Pré-visualização dos Cálculos</Text>
 
           <View style={styles.previewContainer}>
             <View style={styles.previewRow}>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.textWhite,
   },
   cardTitleContainer: {
     flexDirection: "row",
@@ -229,10 +229,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   previewContainer: {
-    backgroundColor: theme.colors.surface,
     padding: 16,
     borderRadius: 8,
     marginBottom: 24,
+    backgroundColor: theme.colors.primary,
   },
   previewRow: {
     flexDirection: "row",
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   previewText: {
-    color: theme.colors.textWhite,
+    color: theme.colors.textBlack,
   },
   previewValue: {
     fontWeight: "bold",
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   netProfitLabel: {
     fontSize: 16,
     fontWeight: "bold",
-    color: theme.colors.primary,
+    color: theme.colors.textBlack,
   },
   netProfitValue: {
     fontSize: 18,

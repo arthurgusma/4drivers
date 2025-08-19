@@ -227,7 +227,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   statLabel: {
-    fontSize: 12,
+    fontSize: 14,
+    fontWeight: "bold",
     color: theme.colors.outline,
     marginBottom: 4,
   },

@@ -280,7 +280,6 @@ const styles = StyleSheet.create({
   },
   statBox: {
     width: "48%",
-    backgroundColor: theme.colors.surface,
     padding: 12,
     borderRadius: 8,
     marginBottom: 12,
@@ -288,7 +287,8 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 14,
-    color: theme.colors.textWhite,
+    fontWeight: "bold",
+    color: theme.colors.outline,
     marginBottom: 4,
   },
   statValue: {
@@ -331,6 +331,7 @@ const styles = StyleSheet.create({
   },
   metricLabel: {
     fontSize: 12,
+    fontWeight: "bold",
     color: theme.colors.outline,
     marginTop: 8,
     marginBottom: 4,

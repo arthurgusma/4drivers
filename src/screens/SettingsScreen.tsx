@@ -296,11 +296,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     marginBottom: 12,
-    color: theme.colors.secondary,
+    color: theme.colors.outline,
   },
   input: {
     marginBottom: 16,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.textWhite,
   },
   cardTitleContainer: {
     flexDirection: "row",
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
   newAppInput: {
     flex: 1,
     marginRight: 8,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.textWhite,
   },
   divider: {
     marginVertical: 16,
