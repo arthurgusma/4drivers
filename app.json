@@ -4,23 +4,16 @@
     "slug": "driver-finance-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./public/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#2E7D32"
-    },
-    "assetBundlePatterns": ["**/*"],
+    "scheme": "driver-finance-app",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.driverfinance.app"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#2E7D32"
-      },
       "package": "com.driverfinance.app",
       "permissions": [
         "android.permission.RECEIVE_BOOT_COMPLETED",
@@ -30,12 +23,12 @@
       ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./public/placeholder-logo.png"
     },
-    "plugins": ["expo-notifications", "expo-location"],
-    "notification": {
-      "icon": "./assets/notification-icon.png",
-      "color": "#2E7D32"
-    }
+    "plugins": [
+      "expo-notifications",
+      "expo-location",
+      "expo-router"
+    ]
   }
 }

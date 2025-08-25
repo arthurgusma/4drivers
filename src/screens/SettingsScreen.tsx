@@ -6,11 +6,13 @@ import { Card, TextInput, List, Switch, Divider, Chip, IconButton } from "react-
 import { Ionicons } from "@expo/vector-icons"
 import * as Notifications from "expo-notifications"
 import { useData } from "../context/DataContext"
+import { useAuth } from "../context/AuthContext"
 import { theme } from "../theme/theme"
 import Button from "../components/ui/Button"
 
 export default function SettingsScreen() {
   const { state, updateSettings, clearAllData } = useData()
+  const { logout } = useAuth()
   const [fuelPrice, setFuelPrice] = useState(state.settings.fuelPricePerLiter.toString())
   const [autonomy, setAutonomy] = useState(state.settings.vehicleAutonomy.toString())
   const [newApp, setNewApp] = useState("")
@@ -246,9 +248,27 @@ export default function SettingsScreen() {
             onPress={handleClearAllData}
             textColor={theme.colors.textWhite}
             icon="delete"
-            style={{ backgroundColor: theme.colors.danger }}
+            style={{ backgroundColor: theme.colors.danger, marginBottom: 16 }}
           >
             Apagar Todos os Dados
+          </Button>
+
+          <Button
+            onPress={() => {
+              Alert.alert("Sair", "Deseja sair da sua conta?", [
+                { text: "Cancelar", style: "cancel" },
+                {
+                  text: "Sair",
+                  style: "destructive",
+                  onPress: logout,
+                },
+              ])
+            }}
+            textColor={theme.colors.textWhite}
+            icon="logout"
+            style={{ backgroundColor: theme.colors.outline }}
+          >
+            Sair da Conta
           </Button>
         </Card.Content>
       </Card>

@@ -7,8 +7,9 @@ import { Ionicons } from "@expo/vector-icons"
 import { useData } from "../context/DataContext"
 import { theme } from "../theme/theme"
 import Button from "../components/ui/Button"
+import { router } from "expo-router"
 
-export default function AddRecordScreen({ navigation }: any) {
+export default function AddRecordScreen() {
   const { addRecord, state } = useData()
   const [distance, setDistance] = useState("")
   const [earnings, setEarnings] = useState<{ [app: string]: string }>({})
@@ -46,7 +47,7 @@ export default function AddRecordScreen({ navigation }: any) {
     addRecord(record)
 
     Alert.alert("Sucesso", "Registro adicionado com sucesso!", [
-      { text: "OK", onPress: () => navigation.navigate("Home") },
+      { text: "OK", onPress: () => router.push("/(tabs)") },
     ])
   }
 
@@ -89,7 +90,6 @@ export default function AddRecordScreen({ navigation }: any) {
             <Text style={styles.cardTitle}>Novo Registro</Text>
           </View>
 
-          {/* Distância */}
           <TextInput
             label="Distância percorrida (km)"
             value={distance}
@@ -101,7 +101,6 @@ export default function AddRecordScreen({ navigation }: any) {
             left={<TextInput.Icon icon="map-marker-distance" />}
           />
 
-          {/* Ganhos por App */}
           <Text style={styles.sectionTitle}>Ganhos por Aplicativo</Text>
 
           {state.settings.apps.map((app) => (
@@ -118,7 +117,6 @@ export default function AddRecordScreen({ navigation }: any) {
             />
           ))}
 
-          {/* Adicionar novo app */}
           {showAddApp ? (
             <View style={styles.addAppContainer}>
               <TextInput
@@ -151,7 +149,6 @@ export default function AddRecordScreen({ navigation }: any) {
 
           <Divider style={styles.divider} />
 
-          {/* Preview dos Cálculos */}
           <Text style={styles.sectionTitle}>Pré-visualização dos Cálculos</Text>
 
           <View style={styles.previewContainer}>
