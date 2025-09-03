@@ -8,8 +8,9 @@ import { Ionicons } from "@expo/vector-icons"
 import { useData } from "../context/DataContext"
 import { theme } from "../theme/theme"
 import Button from "../components/ui/Button"
+import { router } from "expo-router"
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreen() {
   const { getTodayRecord, getWeeklyStats, state } = useData()
   const [refreshing, setRefreshing] = React.useState(false)
 
@@ -97,7 +98,7 @@ export default function HomeScreen({ navigation }: any) {
             <View style={styles.noDataContainer}>
               <Ionicons name="calendar-outline" size={48} color={theme.colors.outline} />
               <Text style={styles.noDataText}>Nenhum registro para hoje</Text>
-              <Button mode="contained" onPress={() => navigation.navigate("Adicionar")}>
+              <Button mode="contained" onPress={() => router.push("/(tabs)/add")}>
                 Adicionar Registro
               </Button>
             </View>
@@ -178,14 +179,14 @@ export default function HomeScreen({ navigation }: any) {
           <View style={styles.actionsContainer}>
             <Button
               mode="contained"
-              onPress={() => navigation.navigate("Adicionar")}
+              onPress={() => router.push("/(tabs)/add")}
               icon="plus"
             >
               Novo Registro
             </Button>
             <Button
               mode="outlined"
-              onPress={() => navigation.navigate("Dashboard")}
+              onPress={() => router.push("/(tabs)/dashboard")}
               icon="chart-line"
             >
               Ver Relatórios

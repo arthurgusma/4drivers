@@ -27,7 +27,7 @@ export default function Button({ children, style, ...props }: ButtonProps) {
 
 const styles = StyleSheet.create({
   button: {
-    marginVertical: 1,
+    marginVertical: 4,
     borderRadius: 8,
     backgroundColor: theme.colors.background,
   },
